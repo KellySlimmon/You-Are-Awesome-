@@ -10,12 +10,13 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var awesomeImage: UIImageView!
     @IBOutlet weak var messageLabel: UILabel!
-    var index = 0
+    var index = -1
+    var imageIndex = -1
+    let numImages = 10
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-
     }
 
 
@@ -25,14 +26,26 @@ class ViewController: UIViewController {
                         "You Are Great!",
                         "You're The Bomb!",
                         "U So Cooooool wow", "How can I be you?", "Be my valentine?"]
+        
         var newIndex: Int
+        
         repeat{
             newIndex = Int.random(in: 0..<messages.count)
         } while index == newIndex
-                index = newIndex
-                messageLabel.text = messages[index]
-        }
         
+        index = newIndex
+        messageLabel.text = messages[index]
+        
+        awesomeImage.image = UIImage(named: "image0")
+    
+        repeat{
+            newIndex = Int.random(in: 0..<numImages)
+        } while imageIndex == newIndex
+        
+        imageIndex = newIndex
+        awesomeImage.image = UIImage(named: "image\(imageIndex)")
+    }
+}
         
 //        messageLabel.text = messages.randomElement()!
 //        messageLabel.text = messages[index]
@@ -54,7 +67,6 @@ class ViewController: UIViewController {
 //            messageLabel.text = message1
 //        }
 //        messageLabel.textColor = UIColor.magenta
-    }
     
 
 

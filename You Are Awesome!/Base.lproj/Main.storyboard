@@ -18,13 +18,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image7" translatesAutoresizingMaskIntoConstraints="NO" id="ECE-AW-rrH">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ECE-AW-rrH">
                                 <rect key="frame" x="16" y="228" width="382" height="596"/>
                             </imageView>
                             <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1HV-lK-pXM">
                                 <rect key="frame" x="119.5" y="190" width="175" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="175" id="CsW-Qc-sY4"/>
                                     <constraint firstAttribute="height" constant="30" id="U8G-wH-gdq"/>
                                     <constraint firstAttribute="width" constant="175" id="Wha-C2-yVx"/>
                                 </constraints>
@@ -48,18 +47,23 @@
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Nob-va-Rl7" secondAttribute="trailing" constant="16" id="9QO-ma-1Vw"/>
                             <constraint firstItem="Nob-va-Rl7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="ASn-Nu-0S7"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ECE-AW-rrH" secondAttribute="bottom" constant="38" id="DzJ-Yt-Oir"/>
                             <constraint firstItem="1HV-lK-pXM" firstAttribute="top" secondItem="Nob-va-Rl7" secondAttribute="bottom" constant="38" id="Nzl-dy-URJ"/>
+                            <constraint firstItem="ECE-AW-rrH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="P9b-fV-AdQ"/>
                             <constraint firstItem="Nob-va-Rl7" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="VhC-HB-XIx"/>
                             <constraint firstItem="ECE-AW-rrH" firstAttribute="top" secondItem="1HV-lK-pXM" secondAttribute="bottom" constant="8" id="avK-a2-nQY"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ECE-AW-rrH" secondAttribute="trailing" constant="16" id="gPM-c2-6Bc"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ECE-AW-rrH" secondAttribute="trailing" constant="16" id="lPN-tc-4qx"/>
                             <constraint firstItem="ECE-AW-rrH" firstAttribute="top" secondItem="1HV-lK-pXM" secondAttribute="bottom" constant="8" id="pGC-CH-iPb"/>
                             <constraint firstItem="1HV-lK-pXM" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="rZV-fS-j3x"/>
                             <constraint firstItem="ECE-AW-rrH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="ubo-Bq-ehf"/>
+                            <constraint firstItem="ECE-AW-rrH" firstAttribute="top" secondItem="1HV-lK-pXM" secondAttribute="bottom" constant="8" id="udv-uK-Qxz"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ECE-AW-rrH" secondAttribute="bottom" constant="38" id="v2D-YA-YXh"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="awesomeImage" destination="ECE-AW-rrH" id="brA-nK-bMN"/>
                         <outlet property="messageLabel" destination="Nob-va-Rl7" id="6Mo-Uv-sVg"/>
                     </connections>
                 </viewController>
@@ -68,7 +72,4 @@
             <point key="canvasLocation" x="136.23188405797103" y="89.732142857142847"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="image7" width="850" height="633"/>
-    </resources>
 </document>
