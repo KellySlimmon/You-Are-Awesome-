@@ -24,7 +24,7 @@ class ViewController: UIViewController {
                         "You Are Fantastic!",
                         "You Are Great!",
                         "You're The Bomb!",
-                        "U So Cooooool wow can i be you"]
+                        "U So Cooooool wow", "How can I be you?", "Be my valentine?"]
         var newIndex: Int
         repeat{
             newIndex = Int.random(in: 0..<messages.count)
