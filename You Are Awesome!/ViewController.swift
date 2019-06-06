@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class ViewController: UIViewController {
 
@@ -14,12 +15,34 @@ class ViewController: UIViewController {
     @IBOutlet weak var messageLabel: UILabel!
     var index = -1
     var imageIndex = -1
+    var awesomePlayer = AVAudioPlayer()
+    var soundIndex = -1
+    let numSounds = 6
     let numImages = 10
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-
-
+    
+    func nonRepeatingRandom(lastNumber: Int, maxValue: Int) -> Int{
+        var newIndex: Int
+        repeat{
+            newIndex = Int.random(in: 0..<maxValue)
+        } while index == newIndex
+        return newIndex
+    }
+    func playSound(soundName: String){
+        if let sound = NSDataAsset(name: soundName){
+            do{
+                try awesomePlayer = AVAudioPlayer(data: sound.data)
+                awesomePlayer.play()
+            } catch{
+                print("ERROR: file\(soundName) couldn't be played as a sound.")
+            }
+        }else {
+            print("ERROR: file\(soundName) didn't load")
+        }
+    }
+    
     @IBAction func showMessagePressed(_ sender: UIButton) {
         let messages = ["You Are Awesome!",
                         "You Are Fantastic!",
@@ -27,23 +50,21 @@ class ViewController: UIViewController {
                         "You're The Bomb!",
                         "U So Cooooool wow", "How can I be you?", "Be my valentine?"]
         
-        var newIndex: Int
         
-        repeat{
-            newIndex = Int.random(in: 0..<messages.count)
-        } while index == newIndex
-        
-        index = newIndex
+        // Display message
+        index = nonRepeatingRandom(lastNumber: index, maxValue: messages.count)
         messageLabel.text = messages[index]
         
-        awesomeImage.image = UIImage(named: "image0")
-    
-        repeat{
-            newIndex = Int.random(in: 0..<numImages)
-        } while imageIndex == newIndex
-        
-        imageIndex = newIndex
+        // Display image
+        imageIndex = nonRepeatingRandom(lastNumber: imageIndex, maxValue: numImages)
         awesomeImage.image = UIImage(named: "image\(imageIndex)")
+        
+        // Get a random number to use in our soundName file
+        soundIndex = nonRepeatingRandom(lastNumber: soundIndex, maxValue: numSounds)
+        
+        // Play a sound
+        let soundName = "sound\(soundIndex)"
+        playSound(soundName: soundName)
     }
 }
         
