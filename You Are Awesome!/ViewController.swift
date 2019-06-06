@@ -6,6 +6,14 @@
 //  Copyright © 2019 Kelly Slimmon. All rights reserved.
 //
 
+echo "# you-are-awesome-KellySlimmon" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/bcswiftsummer19/you-are-awesome-KellySlimmon.git
+git push -u origin master
+
+
 import UIKit
 import AVFoundation
 
@@ -30,11 +38,11 @@ class ViewController: UIViewController {
         } while index == newIndex
         return newIndex
     }
-    func playSound(soundName: String){
+    func playSound(soundName: String, audioPlayer: inout AVAudioPlayer){
         if let sound = NSDataAsset(name: soundName){
             do{
-                try awesomePlayer = AVAudioPlayer(data: sound.data)
-                awesomePlayer.play()
+                try audioPlayer = AVAudioPlayer(data: sound.data)
+                audioPlayer.play()
             } catch{
                 print("ERROR: file\(soundName) couldn't be played as a sound.")
             }
@@ -64,7 +72,7 @@ class ViewController: UIViewController {
         
         // Play a sound
         let soundName = "sound\(soundIndex)"
-        playSound(soundName: soundName)
+        playSound(soundName: soundName, audioPlayer: &awesomePlayer)
     }
 }
         
