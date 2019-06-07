@@ -24,13 +24,14 @@ class ViewController: UIViewController {
         super.viewDidLoad()
     }
     
-    func nonRepeatingRandom(lastNumber: Int, maxValue: Int) -> Int{
+    func nonRepeatingRandom(lastNumber: Int, maxValue: Int) -> Int {
         var newIndex: Int
         repeat{
             newIndex = Int.random(in: 0..<maxValue)
-        } while index == newIndex
+        } while lastNumber == newIndex
         return newIndex
     }
+    
     func playSound(soundName: String, audioPlayer: inout AVAudioPlayer){
         if let sound = NSDataAsset(name: soundName){
             do{
@@ -69,7 +70,7 @@ class ViewController: UIViewController {
             soundIndex = nonRepeatingRandom(lastNumber: soundIndex, maxValue: numSounds)
         // Play a sound
             let soundName = "sound\(soundIndex)"
-                playSound(soundName: soundName, audioPlayer: &awesomePlayer)
+            playSound(soundName: soundName, audioPlayer: &awesomePlayer)
         }
     }
 }
