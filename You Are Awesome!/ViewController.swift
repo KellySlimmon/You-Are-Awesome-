@@ -6,19 +6,13 @@
 //  Copyright © 2019 Kelly Slimmon. All rights reserved.
 //
 
-echo "# you-are-awesome-KellySlimmon" >> README.md
-git init
-git add README.md
-git commit -m "first commit"
-git remote add origin https://github.com/bcswiftsummer19/you-are-awesome-KellySlimmon.git
-git push -u origin master
-
 
 import UIKit
 import AVFoundation
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var soundSwitch: UISwitch!
     @IBOutlet weak var awesomeImage: UIImageView!
     @IBOutlet weak var messageLabel: UILabel!
     var index = -1
@@ -51,6 +45,11 @@ class ViewController: UIViewController {
         }
     }
     
+    @IBAction func soundSwitchPressed(_ sender: UISwitch) {
+        if soundSwitch.isOn == false && if soundIndex != -1{
+            awesomePlayer.stop()
+        }
+    }
     @IBAction func showMessagePressed(_ sender: UIButton) {
         let messages = ["You Are Awesome!",
                         "You Are Fantastic!",
@@ -66,13 +65,13 @@ class ViewController: UIViewController {
         // Display image
         imageIndex = nonRepeatingRandom(lastNumber: imageIndex, maxValue: numImages)
         awesomeImage.image = UIImage(named: "image\(imageIndex)")
-        
+        if soundSwitch.isOn {
         // Get a random number to use in our soundName file
-        soundIndex = nonRepeatingRandom(lastNumber: soundIndex, maxValue: numSounds)
-        
+            soundIndex = nonRepeatingRandom(lastNumber: soundIndex, maxValue: numSounds)
         // Play a sound
-        let soundName = "sound\(soundIndex)"
-        playSound(soundName: soundName, audioPlayer: &awesomePlayer)
+            let soundName = "sound\(soundIndex)"
+                playSound(soundName: soundName, audioPlayer: &awesomePlayer)
+        }
     }
 }
         
